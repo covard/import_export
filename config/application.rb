@@ -13,6 +13,8 @@ module ImportExport
     # -- all .rb files in that directory are automatically loaded.
     config.autoload_paths += %W{
       #{config.root}/lib
+      #{config.root}/lib/imports
+      #{config.root}/lib/exports
     }
 
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
