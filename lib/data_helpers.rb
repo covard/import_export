@@ -1,10 +1,10 @@
 module DataHelpers
-  def self.columns_as_hash(klass_name)
+  def self.obj_columns(klass_name)
     klass_name.constantize.column_names.map &:to_sym
   end
 
-  def self.generate_attr_hash(obj_attr_hash, data)
-    data.select { |key, value| obj_attr_hash.include?(key) }
+  def self.generate_attr_hash(obj_attr_ary, data)
+    data.select { |key, value| obj_attr_ary.include?(key) }
   end
 
   def self.missing_req_headers?(req_headers, file_headers)
