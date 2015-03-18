@@ -16,8 +16,9 @@ class ProductImporter < Importer
   end
 
   def add_update_product(data)
+    # finding by this instead of find_or_create_by because user can update product through import wouldn't match and would create a new one
     product = Product.find_by_sku data[:sku]
-    data_hsh = DataHelpers.generate_attr_hash(DataHelpers.columns_as_hash('Product'), data)
+    data_hsh = DataHelpers.generate_attr_hash(DataHelpers.obj_columns('Product'), data)
     product.blank? ? Product.create(data_hsh) : product.update(data_hsh)
   end
 end
