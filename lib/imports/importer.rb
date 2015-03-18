@@ -1,9 +1,10 @@
 class Importer
-  attr_accessor :start_time
+  attr_accessor :start_time, :req_headers
 
   def initialize
     super
     @start_time = Time.now
+    @req_headers = []
   end
 
   def process
